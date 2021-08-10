@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kFC+K4D4sducw94yrpVl3MX1iphqBkN0iL3FmMqUQAEIORiHnBXg1cOmnnV9nvkEdmrA32/dxKUB6UtfWVlr4Q==",
+  "dgSpecHash": "fIr+YYOpaVoXBnViIvjc3Z7DcW/sIL7vb3Z7q86TQ+yS+ZO960CZpQIsQv3401VxX+L1VnggFoOGw0BJiEmzeA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\VAGNER ARAÚJO\\Desktop\\Programação\\PROJETOS GITHUB\\EventsProject\\src\\Data\\Data.csproj",
+  "projectFilePath": "C:\\Users\\VAGNER ARAÚJO\\Desktop\\Programação\\PROJETOS GITHUB\\EventsProject\\EventsProject\\src\\Data\\Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\VAGNER ARAÚJO\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\VAGNER ARAÚJO\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

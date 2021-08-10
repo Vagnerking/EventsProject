@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\VAGNER ARAÚJO\\Desktop\\Programação\\PROJETOS GITHUB\\EventsProject\\src\\Business\\Business.csproj",
+      "projectUniqueName": "C:\\Users\\VAGNER ARAÚJO\\Desktop\\Programação\\PROJETOS GITHUB\\EventsProject\\EventsProject\\src\\Business\\Business.csproj",
       "projectName": "Business",
-      "projectPath": "C:\\Users\\VAGNER ARAÚJO\\Desktop\\Programação\\PROJETOS GITHUB\\EventsProject\\src\\Business\\Business.csproj",
+      "projectPath": "C:\\Users\\VAGNER ARAÚJO\\Desktop\\Programação\\PROJETOS GITHUB\\EventsProject\\EventsProject\\src\\Business\\Business.csproj",
       "packagesPath": "C:\\Users\\VAGNER ARAÚJO\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\VAGNER ARAÚJO\\Desktop\\Programação\\PROJETOS GITHUB\\EventsProject\\src\\Business\\obj\\",
+      "outputPath": "C:\\Users\\VAGNER ARAÚJO\\Desktop\\Programação\\PROJETOS GITHUB\\EventsProject\\EventsProject\\src\\Business\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"

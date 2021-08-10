@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IT5SYDnlWGjNxPwPzVsXcxlqJI7yRdDOjKA4L9Q6ZJFNOXS/CYBvkSR/lOpSzDdIv9+AEDOn3PTOJvQAuOhzXg==",
+  "dgSpecHash": "JD4Dl/UTMp+29Bgywz66vhWasHRB4udeKgeMBRiPoy2FOcwZJCPuqHZTboPzXE17LmZny8qGD1NdtnAm3reAPQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\VAGNER ARAÚJO\\Desktop\\Programação\\PROJETOS GITHUB\\EventsProject\\src\\App\\App.csproj",
+  "projectFilePath": "C:\\Users\\VAGNER ARAÚJO\\Desktop\\Programação\\PROJETOS GITHUB\\EventsProject\\EventsProject\\src\\App\\App.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\VAGNER ARAÚJO\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\VAGNER ARAÚJO\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
