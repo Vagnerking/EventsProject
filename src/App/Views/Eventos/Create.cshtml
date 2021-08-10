@@ -1,0 +1,54 @@
+﻿@model App.ViewModels.EventoViewModel
+@using Business.Enums
+
+@{
+    ViewData["Title"] = "Criar Evento";
+}
+
+<div class="container">
+    <br />
+    <h5><b>@ViewData["Title"]</b></h5>
+    <hr />
+
+
+    <form asp-action="Create" method="post">
+
+
+        <partial name="_InfosEvento" />
+
+        <br />
+        <h4><b>Endereço Do Evento</b></h4>
+        <hr />
+        <partial name="_EnderecoEvento" />
+
+        <br />
+        <div class="row">
+            <div class="form-group col-md-6">
+                <a class="btn btn-primary" href="javascript:window.history.back();">Voltar</a>
+                <input type="submit" value="Criar Evento" class="btn btn-success" />
+            </div>
+        </div>
+
+    </form>
+</div>
+
+
+<br />
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/jQuery-Mask/dist/jquery.mask.min.js"></script>
+    <script type="text/javascript"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $('#Valor').mask('#.##0,00', { reverse: true });
+            $('#DataEvento').mask('00/00/0000 00:00');
+            $('#Endereco_Cep').mask('00.000-000');
+            BuscaCep();
+
+        });
+    </script>
+
+}

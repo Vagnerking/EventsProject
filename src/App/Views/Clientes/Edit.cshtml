@@ -1,0 +1,176 @@
+﻿@model App.ViewModels.ClienteViewModel
+@using Business.Enums
+
+@{
+    ViewData["Title"] = "Editar Cliente - Informações Pessoais";
+}
+
+<br />
+<h4><b>@ViewData["Title"]</b></h4>
+<hr />
+
+
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" />
+
+
+    <div class="form-row">
+        <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3">
+            <label id="LabelNome" class="control-label"></label>
+            <input id="InputNome" asp-for="NomeCompleto" class="form-control" placeholder="Pedro Santos" />
+            <span asp-validation-for="NomeCompleto" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3">
+            <label asp-for="Tipo" class="control-label"></label>
+            <select id="Tipo" asp-for="Tipo" class="form-control" asp-items="@Html.GetEnumSelectList<ETipo>()"></select>
+            <span asp-validation-for="Tipo" class="text-danger"></span>
+        </div>
+
+        <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3">
+            <label asp-for="Documento" class="control-label"></label>
+            <input id="Documento" name="Documento" asp-for="Documento" class="form-control" placeholder="CPF / CNPJ" />
+            <span asp-validation-for="Documento" class="text-danger"></span>
+        </div>
+
+        <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3">
+            <label asp-for="Telefone" class="control-label"></label>
+            <input id="Telefone" name="Telefone" asp-for="Telefone" class="form-control" placeholder="(DDD) 99999-9999" />
+            <span asp-validation-for="Telefone" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3">
+            <label asp-for="Genero" class="control-label"></label>
+            <select id="Genero" name="Genero" asp-for="Genero" class="form-control">
+                <option value="0">Masculino</option>
+                <option value="1">Feminino</option>
+                <option value="2">Empresarial</option>
+            </select>
+            <span asp-validation-for="Genero" class="text-danger"></span>
+        </div>
+        <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3">
+            <label asp-for="DataNascimento" class="control-label"></label>
+            <input id="DataNascimento" type="date" asp-for="DataNascimento" class="form-control" max="@DateTime.Now.AddYears(-18).ToString("yyyy-MM-dd")" min="@DateTime.Now.AddYears(-100).ToString("yyyy-MM-dd")" />
+            <span asp-validation-for="DataNascimento" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group col-12 col-sm-6 col-md-4 col-lg-3">
+            <label asp-for="Ativo" class="control-label"></label>
+            <select asp-for="Ativo" class="form-control">
+                <option value="false">Não</option>
+                <option value="true">Sim</option>
+            </select>
+            <span asp-validation-for="Ativo" class="text-danger"></span>
+
+        </div>
+
+
+    </div>
+
+
+    <br />
+    <h5>Endereço</h5>
+    <hr />
+
+    <partial name="_EnderecoCliente" />
+
+    <br />
+
+    <div class="form-row">
+        <a class="btn btn-info mr-2" href="javascript:window.history.back();">Voltar</a>
+        <input type="submit" value="Salvar Alterações" class="btn btn-success" />
+    </div>
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script src="~/js/jQuery-Mask/dist/jquery.mask.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            var tipo = document.getElementById("Tipo");
+            var genero = document.getElementById("Genero");
+            var documento = document.getElementById("Documento");
+            var lblNome = document.getElementById('LabelNome');
+            var inputNome = document.getElementById('InputNome');
+            var dataNascimento = document.getElementById('DataNascimento');
+
+            $('#Telefone').mask('(00) 00000-0000');
+            $('#Endereco_Cep').mask('00.000-000');
+
+            checkTipo();
+            BuscaCep();
+
+            tipo.onchange = function () {
+                inputNome.value = '';
+                documento.value = '';
+                checkTipo();
+            };
+
+
+            function checkTipo() {
+
+                if (tipo.value == 0) {
+
+
+                    var today = new Date();
+                    var dd = String(today.getDate()).padStart(2, '0');
+                    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                    var yyyy = today.getFullYear() - 18;
+
+                    today = yyyy + '-' + mm + '-' + dd;
+
+                    dataNascimento.setAttribute("max", today);
+                    dataNascimento.setAttribute("min", '1500-01-01');
+
+                    $('#Documento').mask('000.000.000-00');
+
+                    //Empresarial Invisivel
+                    genero.options[2].hidden = true;
+                    //Mudar label do nome
+                    lblNome.innerHTML = 'Nome Completo';
+                    //Masc e Fem Visivel
+                    genero.options[0].hidden = false;
+                    genero.options[1].hidden = false;
+                    genero.value = 0;
+                }
+                else {
+
+                    var today = new Date();
+                    var dd = String(today.getDate()).padStart(2, '0');
+                    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                    var yyyy = today.getFullYear();
+
+                    today = yyyy + '-' + mm + '-' + dd;
+
+                    dataNascimento.setAttribute("max", today);
+                    dataNascimento.setAttribute("min", '1500-01-01');
+
+                    $('#Documento').mask('00.000.000/0000-00');
+
+                    //Empresarial Visivel
+                    genero.options[2].hidden = false;
+                    genero.value = 2;
+                    //Mudar label do nome
+                    lblNome.innerHTML = 'Nome Fantasia';
+                    //Masc e Fem Invisivel
+                    genero.options[0].hidden = true;
+                    genero.options[1].hidden = true;
+
+                }
+
+            };
+
+        });
+
+    </script>
+
+
+}

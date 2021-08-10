@@ -1,0 +1,25 @@
+﻿@model App.ViewModels.ClienteViewModel
+@using Business.Enums
+
+@{
+    ViewData["Title"] = "Excluir Cliente - " + @Model.NomeCompleto;
+}
+
+<br />
+<h4><b>@ViewData["Title"]</b></h4>
+<hr />
+
+<form asp-action="Delete" method="post" >
+
+
+    <partial name="_DetalhesCliente" />
+
+    <br />
+
+    <div class="form-row">
+        <a class="btn btn-info mr-2" href="javascript:window.history.back();">Voltar</a>
+        <input type="submit" value="Excluir Cliente" class="btn btn-danger"/>
+    </div>
+
+
+</form>

@@ -1,0 +1,55 @@
+﻿@model App.ViewModels.ClienteViewModel
+@using Business.Enums
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<br />
+<h4><b>@ViewData["Title"]</b></h4>
+<hr />
+
+<partial name="_DetalhesCliente" model="@Model" />
+
+<div class="form-group">
+    <a class="btn btn-info" href="javascript:window.history.back();">Voltar</a>
+    <a class="btn btn-warning text-white" asp-action="Edit" asp-route-id="@Model.Id">Editar</a>
+</div>
+
+
+<br />
+<br />
+
+<h4><b>Eventos Do Cliente</b></h4>
+<hr />
+
+<partial name="_ListaEventos" model="@Model.Eventos" />
+
+<br />
+<br />
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+            $('#myTable').DataTable({
+
+                "lengthMenu": [[5, 10, 25, 50], [5, 10, 25, 50]],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Portuguese-Brasil.json"
+                }
+            });
+
+
+        });
+
+    </script>
+
+
+}

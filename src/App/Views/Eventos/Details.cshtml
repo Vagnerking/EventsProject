@@ -1,0 +1,17 @@
+﻿@model App.ViewModels.EventoViewModel
+@using Business.Enums
+
+@{
+    ViewData["Title"] = "Detalhes Evento";
+}
+
+<br />
+<h4><b>@ViewData["Title"]</b></h4>
+<hr />
+
+<partial name="_DetalhesEvento" model="@Model" />
+
+<div class="form-group">
+    <a class="btn btn-info" href="javascript:window.history.back();">Voltar</a>
+    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Id">Editar</a>
+</div>

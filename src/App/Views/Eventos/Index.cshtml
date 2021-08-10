@@ -1,0 +1,39 @@
+﻿@model IEnumerable<App.ViewModels.EventoViewModel>
+
+@{
+    ViewData["Title"] = "Eventos";
+}
+
+
+<br />
+<h4><b>@ViewData["Title"]</b></h4>
+<hr />
+
+<div class="container">
+    <partial name="_ListaEventos" />
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+            $('#myTable').DataTable({
+
+                "lengthMenu": [[5, 10, 25, 50], [5, 10, 25, 50]],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Portuguese-Brasil.json"
+                }
+            });
+
+        });
+
+    </script>
+
+
+}

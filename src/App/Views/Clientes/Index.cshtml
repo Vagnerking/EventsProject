@@ -1,0 +1,48 @@
+﻿@model IEnumerable<App.ViewModels.ClienteViewModel>
+
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+
+
+<br />
+<h4><b>@ViewData["Title"]</b></h4>
+<hr />
+
+<p>
+    <a class="btn btn-success" style="width: 140px;" asp-controller="Clientes" asp-action="Create"><i class="mr-2 fas fa-plus"></i>Novo Cliente</a>
+</p>
+
+<br />
+
+<div class="container">
+    <partial name="_ListaClientes" model="@Model" />
+</div>
+
+<br />
+<br />
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+            $('#myTable').DataTable({
+
+                "lengthMenu": [[5, 10, 25, 50], [5, 10, 25, 50]],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Portuguese-Brasil.json"
+                }
+            });
+
+
+        });
+
+    </script>
+
+
+}

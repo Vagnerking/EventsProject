@@ -1,0 +1,54 @@
+﻿@model IEnumerable<App.ViewModels.EventoViewModel>
+@using Business.Enums;
+
+<div id="tableDiv">
+    <table id="myTable" class="ui celled table" style="width: 100%">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    Cliente
+                </th>
+                <th>
+                    Evento
+                </th>
+                <th>
+                    Data
+                </th>
+                <th>
+                    Contato
+                </th>
+                <th>
+                    Opções
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cliente.NomeCompleto)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Titulo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataEvento)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cliente.Telefone)
+                    </td>
+                    <td>
+                        <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id"><span class="fa fa-search"></span></a>
+                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-pencil-alt"></span></a>
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash"></span></a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+
+

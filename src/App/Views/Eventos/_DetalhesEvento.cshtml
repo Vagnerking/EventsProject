@@ -1,0 +1,66 @@
+﻿@model App.ViewModels.EventoViewModel
+
+
+<dl class="row">
+
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.ClienteId)
+    </dt>
+    <dd class="col-sm-10">
+        <a href="/Clientes/Details/@Model.ClienteId">@Model.Cliente.NomeCompleto</a>
+    </dd>
+
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Titulo)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Titulo)
+    </dd>
+
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Descricao)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Descricao)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Convidados)
+    </dt>
+    <dd class="col-sm-10">
+        @Model.Convidados Convidados
+    </dd>
+    <dt class="col-sm-2">
+        Endereço
+    </dt>
+    <dd class="col-sm-10">
+        @Model.Endereco.Logradouro, nº @Model.Endereco.Numero  |  CEP @Model.Endereco.Cep -  @Model.Endereco.Bairro - @Model.Endereco.Cidade/@Model.Endereco.Estado  - @Model.Endereco.Complemento
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.DataEvento)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.DataEvento)
+    </dd>
+
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.DataCadastro)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.DataCadastro)
+    </dd>
+
+    <dt class="col-sm-2">
+        Contato Cliente
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Cliente.Telefone)
+    </dd>
+    <dt class="col-sm-2">
+        Valor
+    </dt>
+    <dd class="col-sm-10" style="color: green">
+        @Convert.ToDecimal(Model.Valor).ToString("C")
+    </dd>
+
+</dl>
+

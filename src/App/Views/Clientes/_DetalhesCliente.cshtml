@@ -1,0 +1,79 @@
+﻿@model App.ViewModels.ClienteViewModel
+@using Business.Enums
+@using App.Extensions
+
+
+<dl class="row">
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.NomeCompleto)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.NomeCompleto)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Tipo)
+    </dt>
+    <dd class="col-sm-10">
+        @EnumExtensions.GetDisplayName((ETipo)Model.Tipo)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Documento)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Documento)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Genero)
+    </dt>
+    <dd class="col-sm-10">
+        @Enum.GetName(typeof(EGeneros), Model.Genero)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.DataNascimento)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.DataNascimento)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.DataCadastro)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.DataCadastro)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Telefone)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Telefone)
+    </dd>
+    <dt class="col-sm-2">
+        Endereço
+    </dt>
+    <dd class="col-sm-10">
+        @Model.Endereco.Logradouro, nº @Model.Endereco.Numero  |  CEP @Model.Endereco.Cep -  @Model.Endereco.Bairro - @Model.Endereco.Cidade/@Model.Endereco.Estado  - @Model.Endereco.Complemento
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Eventos)
+    </dt>
+    <dd class="col-sm-10">
+        @Model.Eventos.Count() Eventos
+    </dd>
+
+
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Ativo)
+    </dt>
+    <dd class="col-sm-10">
+        @if (Model.Ativo == true)
+        {
+            <p style="color: green">Sim</p>
+        }
+        else
+        {
+            <p style="color: red">Não</p>
+        }
+    </dd>
+
+
+</dl>
+
